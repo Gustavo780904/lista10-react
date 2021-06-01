@@ -5,30 +5,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Exercício 3</title>
     <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
     <!-- Don't use this in production: -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 
-<body onload="mostrarHora()">
+<body>
     <div id="root"></div>
 
     <script type="text/babel">
+        var horaFormat;
+        function getHours() {
 
-    function mostrarHora(){
-        
-    var horaAtual = new Date();
-    var hora = horaAtual.getHours();
-    var minuto = horaAtual.getMinutes();
-    var segundo = horaAtual.getSeconds();
-    var horaFormat = hora + ":" + minuto + ":" + segundo
+            var horaAtual = new Date();
+            var hora = horaAtual.getHours();
+            var minuto = horaAtual.getMinutes();
+            var segundo = horaAtual.getSeconds();
 
-        const horacerta = <p>{horaFormat}</p>;
-        ReactDOM.render(horacerta, document.getElementById("root"));
-    }
+            return horaFormat = hora + ":" + minuto + ":" + segundo
+        }
+        function Display() {
+            return (
+                <div>
+                    <p>Hora certa: {getHours()}</p>
+                </div>
+            );
+        };
+        const horacerta = <Display/>;
+            ReactDOM.render(horacerta, document.getElementById("root"));
+            
     </script>
+
 </body>
 
 </html>

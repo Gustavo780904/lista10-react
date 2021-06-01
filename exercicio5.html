@@ -30,7 +30,7 @@
             );
         };
 
-        const view = Count();
+        const view = <Count/>;
         ReactDOM.render(view, document.getElementById("count"));
 
         function ButtonCount() {
@@ -41,7 +41,7 @@
             );
         }
 
-        const element = ButtonCount();
+        const element = <ButtonCount/>;
         ReactDOM.render(element, document.getElementById("buttonCount"));
 
         function ButtonStopCount() {
@@ -53,17 +53,17 @@
         }
 
         function refreshCount() {
-            const element = Count();
+            const element = <Count/>;
             ReactDOM.render(element, document.getElementById("count"));
         }
         function startCount() {
             counters = setInterval(refreshCount, 1000)
-            const element = ButtonStopCount();
+            const element = <ButtonStopCount/>;
             ReactDOM.render(element, document.getElementById("buttonCount"));
         }
         function stopCount() {
             clearInterval(counters);
-            const element = ButtonCount();
+            const element = <ButtonCount/>;
             ReactDOM.render(element, document.getElementById("buttonCount"));
         }
 

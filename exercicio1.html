@@ -15,7 +15,10 @@
 <body>
     <div id="root"></div>
     <script type="text/babel">
-        const element = <p>Hello, World!</p>;
+    function Helloworld() {
+        return <p>Hello, World!</p>;
+    }
+        const element = <Helloworld/>
         ReactDOM.render(element, document.getElementById("root"));
     </script>
 </body>

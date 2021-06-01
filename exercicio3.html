@@ -16,23 +16,36 @@
     <div id="root"></div>
 
     <script type="text/babel">
+        var horaFormat;
+        function getHours() {
 
-    function mostrarHora(){
-        
-    var horaAtual = new Date();
-    var hora = horaAtual.getHours();
-    var minuto = horaAtual.getMinutes();
-    var segundo = horaAtual.getSeconds();
-    var horaFormat = hora + ":" + minuto + ":" + segundo
+            var horaAtual = new Date();
+            var hora = horaAtual.getHours();
+            var minuto = horaAtual.getMinutes();
+            var segundo = horaAtual.getSeconds();
 
-        const horacerta = <p>{horaFormat}</p>;
-        ReactDOM.render(horacerta, document.getElementById("root"));
-    }
-         function sincrono(){
-            setInterval(mostrarHora, 1000)
+            return horaFormat = hora + ":" + minuto + ":" + segundo
+        }
+        function Display() {
+            return (
+                <div>
+                    <p>Hora certa: {getHours()}</p>
+                </div>
+            );
+        };
+        const horacerta = <Display/>;
+            ReactDOM.render(horacerta, document.getElementById("root"));
+            
+        function startDisplay() {
+            const horacerta = <Display/>;
+            ReactDOM.render(horacerta, document.getElementById("root"));
+        }
+
+        function sincrono() {
+            setInterval(startDisplay, 1000)
         }
     </script>
-   
+
 </body>
 
 </html>

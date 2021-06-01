@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<style>
+    .caixa {
+        background-color: yellow;
+        border: 1px solid green;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+  
+</style>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const name = prompt("Qual é o seu nome?");
+        const largura = parseInt(prompt("Escolha uma largura!"));
+        const altura = parseInt(prompt("Escolha uma altura!"));
+        function Panel() {
+            return (
+                <div>
+                    <p style={{ width: largura, height: altura}} className="caixa">{name} </p>
+                </div>
+            )
+        }
+        const element = <Panel />
+        ReactDOM.render(element, document.getElementById("root"));
+    </script>
+</body>
+
+</html>

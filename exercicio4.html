@@ -16,31 +16,31 @@
     <div id="count"></div>
     <div id="buttonCount"></div>
     <script type="text/babel">
-                let count = 0;  
+        let count = 0;
         function Count() {
             return (
                 <div>
                     <p>Contador: {count++}</p>
                 </div>
-            );   
+            );
         };
-        
-        const view = Count();
-            ReactDOM.render(view, document.getElementById("count"));
 
-    function refreshCount() {
-        const element = Count();
-            ReactDOM.render(element, document.getElementById("count"));
-    }
+        const view = <Count/>;
+        ReactDOM.render(view, document.getElementById("count"));
+
+        function refreshCount() {
+            const view = <Count/>;
+            ReactDOM.render(view, document.getElementById("count"));
+        }
         function ButtonCount() {
             return (
                 <div>
                     <button onClick={refreshCount} >Contar</button>
                 </div>
-            );  
+            );
         }
-        const element = ButtonCount();
-            ReactDOM.render(element, document.getElementById("buttonCount"));
+        const element = <ButtonCount/>;
+        ReactDOM.render(element, document.getElementById("buttonCount"));
     </script>
 </body>
 
