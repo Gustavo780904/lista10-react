@@ -12,16 +12,59 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 
+
 <body>
-    <div id="root">1</div>
-    <button onclick="contador()">Adicionar</button>
+    <div id="count"></div>
+    <div id="buttonCount"></div>
+
     <script type="text/babel">
-    var conta = 1;
-        function contador() {
-            
-             conta += 1;
-             var mostra = <p>{conta}</p>;
-            ReactDOM.render(mostra, document.getElementById("root"));
+
+        let count = 0;
+        var counters;
+
+        function Count() {
+            return (
+                <div>
+                    <p>Contador: {count++}</p>
+                </div>
+            );
+        };
+
+        const view = Count();
+        ReactDOM.render(view, document.getElementById("count"));
+
+        function ButtonCount() {
+            return (
+                <div>
+                    <button onClick={startCount} >Contar</button>
+                </div>
+            );
+        }
+
+        const element = ButtonCount();
+        ReactDOM.render(element, document.getElementById("buttonCount"));
+
+        function ButtonStopCount() {
+            return (
+                <div>
+                    <button onClick={stopCount} >Parar</button>
+                </div>
+            );
+        }
+
+        function refreshCount() {
+            const element = Count();
+            ReactDOM.render(element, document.getElementById("count"));
+        }
+        function startCount() {
+            counters = setInterval(refreshCount, 1000)
+            const element = ButtonStopCount();
+            ReactDOM.render(element, document.getElementById("buttonCount"));
+        }
+        function stopCount() {
+            clearInterval(counters);
+            const element = ButtonCount();
+            ReactDOM.render(element, document.getElementById("buttonCount"));
         }
 
     </script>
