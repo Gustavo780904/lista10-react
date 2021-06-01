@@ -13,10 +13,20 @@
 </head>
 
 <body>
-    <div id="root"></div>
+    <div id="root">1</div>
+    <button onclick="sincrono()">Adicionar</button>
     <script type="text/babel">
-        const element = <p>Hello, World!”</p>;
-        ReactDOM.render(element, document.getElementById("root"));
+    var conta = 1;
+        function contador() {
+            
+             conta += 1;
+             var mostra = <p>{conta}</p>;
+            ReactDOM.render(mostra, document.getElementById("root"));
+        }
+        function sincrono(){
+            setInterval(contador, 1000)
+        }
+
     </script>
 </body>
 

@@ -12,11 +12,22 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 
-<body>
+<body onload="mostrarHora()">
     <div id="root"></div>
+
     <script type="text/babel">
-        const element = <p>Hello, World!”</p>;
-        ReactDOM.render(element, document.getElementById("root"));
+
+    function mostrarHora(){
+        
+    var horaAtual = new Date();
+    var hora = horaAtual.getHours();
+    var minuto = horaAtual.getMinutes();
+    var segundo = horaAtual.getSeconds();
+    var horaFormat = hora + ":" + minuto + ":" + segundo
+
+        const horacerta = <p>{horaFormat}</p>;
+        ReactDOM.render(horacerta, document.getElementById("root"));
+    }
     </script>
 </body>
 
